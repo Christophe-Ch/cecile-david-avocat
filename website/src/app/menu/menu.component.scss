@@ -1,0 +1,45 @@
+nav {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.5rem;
+    background-color: #F8F8FF;
+    border-radius: 8.5rem;
+    display: flex;
+    width: fit-content;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    padding: 0.5rem 1rem;
+    border-radius: 8rem;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.highlight {
+    padding: 0.5rem 1rem;
+    border-radius: 8rem;
+    position: absolute;
+    background: #F8F8FF;
+    color: #F8F8FF;
+    width: 0;
+    left: 0.5rem;
+    mix-blend-mode: difference;
+    transition: 0.5s ease-in-out;
+
+    &.hidden {
+        transition: 0s;
+        visibility: hidden;
+    }
+}

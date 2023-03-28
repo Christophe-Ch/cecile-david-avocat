@@ -1,0 +1,17 @@
+<nav>
+    <ul>
+        <li #item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a routerLink="/">accueil</a>
+        </li>
+        <li #item routerLinkActive="active">
+            <a routerLink="/domaines-intervention">domaines d'intervention</a>
+        </li>
+        <li #item routerLinkActive="active">
+            <a routerLink="/honoraires">honoraires</a>
+        </li>
+        <li #item routerLinkActive="active">
+            <a routerLink="/contact">contact</a>
+        </li>
+        <li #highlight class="highlight hidden">&nbsp;</li>
+    </ul>
+</nav>
