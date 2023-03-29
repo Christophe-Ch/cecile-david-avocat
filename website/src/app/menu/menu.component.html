@@ -1,15 +1,21 @@
 <nav>
+    <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle" #close>
+    <label for="nav_toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
     <ul>
-        <li #item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <li class="nav-link" #item routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a routerLink="/">accueil</a>
         </li>
-        <li #item routerLinkActive="active">
+        <li class="nav-link" #item routerLinkActive="active">
             <a routerLink="/domaines-intervention">domaines d'intervention</a>
         </li>
-        <li #item routerLinkActive="active">
+        <li class="nav-link" #item routerLinkActive="active">
             <a routerLink="/honoraires">honoraires</a>
         </li>
-        <li #item routerLinkActive="active">
+        <li class="nav-link" #item routerLinkActive="active">
             <a routerLink="/contact">contact</a>
         </li>
         <li #highlight class="highlight hidden">&nbsp;</li>

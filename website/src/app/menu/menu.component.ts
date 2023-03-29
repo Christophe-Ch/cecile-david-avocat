@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -11,29 +11,43 @@ const PADDING = 32;
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  @ViewChildren('item') items!: QueryList<ElementRef<HTMLLIElement>>;
-  @ViewChild('highlight') highlight!: ElementRef<HTMLLIElement>;
-  currentIndex: number = 0;
+  @ViewChildren('item') private _items!: QueryList<ElementRef<HTMLLIElement>>;
+  @ViewChild('highlight') private _highlight!: ElementRef<HTMLLIElement>;
+  @ViewChild('close') private _closeToggle!: ElementRef<HTMLInputElement>;
+  private _wasResponsive!: boolean;
 
   constructor(private readonly _router: Router) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (event.target.innerWidth > 768 && this._wasResponsive) {
+      this._moveHighlight();
+      this._wasResponsive = false;
+    } else if (event.target.innerWidth < 768) {
+      this._wasResponsive = true;
+    }
+  }
+
   ngOnInit(): void {
-    this._router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
-      setTimeout(() => this._moveHighlight());
-    })
+    this._router.events.pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => this._moveHighlight());
+        this._closeToggle.nativeElement.checked = false;
+      });
+    this._wasResponsive = window.innerWidth < 768;
   }
 
   private _moveHighlight(): void {
-    const items = this.items.toArray();
+    const items = this._items.toArray();
     const activeElement = items.find(item => item.nativeElement.classList.contains('active'))!;
     const previousElements = items.slice(0, items.indexOf(activeElement));
-    
+
     const left = previousElements.reduce((sum: number, el: ElementRef) => sum + el.nativeElement.getBoundingClientRect().width, 0) + BASE_LEFT;
-    this.highlight.nativeElement.style.left = `${left}px`;
+    this._highlight.nativeElement.style.left = `${left}px`;
 
     const width = activeElement.nativeElement.getBoundingClientRect().width;
-    this.highlight.nativeElement.style.width = `${width - PADDING}px`;
+    this._highlight.nativeElement.style.width = `${width - PADDING}px`;
 
-    this.highlight.nativeElement.classList.remove('hidden');
-  } 
+    this._highlight.nativeElement.classList.remove('hidden');
+  }
 }
