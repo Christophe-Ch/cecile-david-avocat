@@ -1,0 +1,23 @@
+@import 'variables';
+
+article:not(.fullscreen) {
+    padding: 3rem 2rem;
+}
+
+article.fullscreen {
+    margin-bottom: 3rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: $md) {
+    article:not(.fullscreen) {
+        padding: 5rem 5rem;
+    }
+
+    article.fullscreen {
+        margin-bottom: 15rem;
+    }
+}

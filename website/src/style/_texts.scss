@@ -1,0 +1,65 @@
+@import 'variables';
+
+* {
+    font-weight: var(--fw-regular);
+}
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+h2 {
+    text-align: center;
+    font-size: var(--text-2xl);
+    line-height: calc(1.25 * var(--text-2xl));
+
+    span {
+        font-style: italic;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.5rem;
+    }
+}
+
+.section-title {
+    display: flex;
+
+    hr {
+        flex: 1;
+        margin-top: 1.5rem;
+        height: 1px;
+    }
+
+    h2 {
+        margin-inline: 1rem;
+        text-align: end;
+    }
+
+    margin-bottom: 3rem;
+    margin-left: -2rem;
+}
+
+p {
+    font-size: var(--text-md);
+    line-height: var(--text-xl);
+}
+
+@media screen and (min-width: $md) {
+    .section-title {
+        margin-left: -5rem;
+
+        h2 {
+            margin-inline-end: 3rem;
+        }
+    }
+
+    h2 {
+        font-size: 4rem;
+        line-height: 5rem;
+
+        span {
+            text-underline-offset: 0.5rem;
+            text-decoration-thickness: 1px;
+        }
+    }
+}

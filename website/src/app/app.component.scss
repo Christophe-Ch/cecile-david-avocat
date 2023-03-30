@@ -1,0 +1,17 @@
+@import '../style/sizes';
+
+footer {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    
+    a {
+        color: var(--dark-color);
+    }
+}
+
+@media screen and (min-width: $md) {
+    footer {
+        margin-top: 5rem;
+    }
+}

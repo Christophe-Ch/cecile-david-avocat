@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "style/reset";
 @import "style/sizes";
+@import "style/variables";
+@import "style/texts";
+@import "style/sections";
 
 @font-face {
     font-family: 'Playfair Display';
@@ -8,6 +11,17 @@
     font-weight: 1 999;
 }
 
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../src/assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format("truetype-variations");
+    font-style: italic;
+    font-weight: 1 999;
+}
+
 * {
     font-family: 'Playfair Display';
+}
+
+body {
+    background-color: var(--light-color);
 }

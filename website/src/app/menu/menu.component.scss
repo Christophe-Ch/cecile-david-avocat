@@ -4,9 +4,9 @@ nav {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    background-color: #F8F8FF;
+    background-color: var(--light-color);
     border-radius: 8.5rem;
-
+    z-index: 10;
 }
 
 input,
@@ -36,6 +36,9 @@ ul {
     &:checked~ul {
         left: 0;
     }
+    &:checked~label span{
+        background-color: var(--dark-color);
+    }
 }
 
 .nav-toggle-label {
@@ -59,7 +62,7 @@ ul {
         display: block;
         height: 2px;
         width: 100%;
-        background: black;
+        background: var(--light-color);
         border-radius: 10px;
         mix-blend-mode: difference;
 
@@ -95,12 +98,14 @@ ul {
     align-items: center;
     list-style-type: none;
     gap: 1rem;
+    
+    background-color: var(--light-color);
 
     transition: .75s left ease-in-out;
 
     .nav-link {
-        font-size: var(--text-xl);
-        line-height: 2rem;
+        font-size: var(--text-md);
+        line-height: var(--text-md);
         position: relative;
 
         a {
@@ -135,7 +140,7 @@ ul {
 
 @media screen and (min-width: $md) {
     nav {
-        padding: 0.5rem;
+        padding: 0.25rem 0.5rem;
         display: flex;
         width: fit-content;
     }
@@ -150,39 +155,40 @@ ul {
         height: fit-content;
         gap: 0;
 
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8rem;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 500;
+            line-height: normal;
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
         .highlight {
             display: block;
             padding: 0.5rem 1rem;
             border-radius: 8rem;
             position: absolute;
-            background: #F8F8FF;
-            color: #F8F8FF;
+            background: var(--light-color);
+            color: var(--light-color);
             width: 0;
             left: 0.5rem;
             mix-blend-mode: difference;
             transition: 0.5s ease-in-out;
-    
+
             &.hidden {
                 transition: 0s;
                 visibility: hidden;
             }
-        }
-    }
-
-    .nav-link {
-        padding: 0.5rem 1rem;
-        border-radius: 8rem;
-        cursor: pointer;
-        user-select: none;
-        font-weight: 500;
-
-        a {
-            color: black;
-            text-decoration: none;
-        }
-
-        &::after {
-            display: none;
         }
     }
 }
