@@ -9,6 +9,7 @@ import { DomainesPageComponent } from './domaines-page/domaines-page.component';
 import { HonorairesPageComponent } from './honoraires-page/honoraires-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GoToContactComponent } from './go-to-contact/go-to-contact.component';
+import { PageHeadingComponent } from './page-heading/page-heading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GoToContactComponent } from './go-to-contact/go-to-contact.component';
     DomainesPageComponent,
     HonorairesPageComponent,
     ContactPageComponent,
-    GoToContactComponent
+    GoToContactComponent,
+    PageHeadingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

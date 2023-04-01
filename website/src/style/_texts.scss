@@ -8,6 +8,11 @@ strong {
     font-weight: var(--fw-bold);
 }
 
+h1 {
+    font-size: var(--text-3xl);
+    line-height: calc(1.25 * var(--text-3xl));
+}
+
 h2 {
     text-align: center;
     font-size: var(--text-2xl);
@@ -31,8 +36,9 @@ h2 {
     }
 
     h2 {
-        margin-inline: 1rem;
         text-align: end;
+        min-width: min-content;
+        max-width: 75%;
     }
 
     margin-bottom: 3rem;
@@ -48,9 +54,18 @@ p {
     .section-title {
         margin-left: -5rem;
 
+        hr {
+            margin-top: 3rem;
+        }
+
         h2 {
             margin-inline-end: 3rem;
         }
+    }
+
+    h1 {
+        font-size: 6rem;
+        line-height: 7rem;
     }
 
     h2 {
@@ -60,6 +75,17 @@ p {
         span {
             text-underline-offset: 0.5rem;
             text-decoration-thickness: 1px;
+        }
+    }
+}
+
+@media screen and (min-width: $xl) {
+    .section-title {
+        max-width: 75%;
+
+        h1 {
+            font-size: 8rem;
+            line-height: 9rem;
         }
     }
 }
