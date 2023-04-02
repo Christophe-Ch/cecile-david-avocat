@@ -12,6 +12,7 @@ import { GoToContactComponent } from './go-to-contact/go-to-contact.component';
 import { PageHeadingComponent } from './page-heading/page-heading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HonorairesPageComponent,
     ContactPageComponent,
     GoToContactComponent,
-    PageHeadingComponent
+    PageHeadingComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
