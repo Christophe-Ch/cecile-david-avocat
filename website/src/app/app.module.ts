@@ -10,6 +10,8 @@ import { HonorairesPageComponent } from './honoraires-page/honoraires-page.compo
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GoToContactComponent } from './go-to-contact/go-to-contact.component';
 import { PageHeadingComponent } from './page-heading/page-heading.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PageHeadingComponent } from './page-heading/page-heading.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
