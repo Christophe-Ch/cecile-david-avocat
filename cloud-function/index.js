@@ -46,8 +46,7 @@ exports.sendMail = async (req, res) => {
     };
 
     const transporter = nodemailer.createTransport({
-        host: process.env.SENDER_SMTP_HOST,
-        port: 465,
+        service: process.env.MAIL_SERVICE,
         secure: true,
         auth: {
             user: process.env.SENDER_MAIL_ADDRESS,
