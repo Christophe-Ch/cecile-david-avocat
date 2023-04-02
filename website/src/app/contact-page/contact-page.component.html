@@ -8,7 +8,7 @@
         <h2>Une question ? Une demande ?</h2>
         <hr>
     </div>
-    <form [formGroup]="contactForm">
+    <form [formGroup]="contactForm" (submit)="submit()">
         <div class="row">
             <div class="form-group">
                 <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom complet</label>
