@@ -1,0 +1,74 @@
+@import '../../style/sizes';
+
+.section-title {
+    h2 {
+        margin-inline-start: 2rem;
+    }
+}
+
+.pricing-details {
+    section {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    q {
+        font-size: var(--text-xl);
+        display: block;
+        text-align: center;
+        margin-block: 2rem;
+    }
+
+    ul {
+        list-style-type: circle;
+        padding-inline-start: 2rem;
+        margin-block: 1.5rem;
+
+        li {
+            line-height: 1.5rem;
+        }
+    }
+
+    .section-picture {
+        margin-block-end: 3rem;
+        width: calc(100% + 4rem);
+        height: 8rem;
+        transform: translateX(-2rem);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (min-width: $xl) {
+    .section-title {
+        max-width: 60%;
+    }
+
+    .pricing-details {
+        padding-block-end: 0;
+        
+        section {
+            flex-direction: row;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .section-content {
+            flex: 3;
+        }
+
+        .section-picture {
+            flex: 2;
+            height: auto;
+            transform: translateX(5rem);
+        }
+
+        img {
+            border-radius: 10rem 0 0 10rem;
+        }
+    }
+}

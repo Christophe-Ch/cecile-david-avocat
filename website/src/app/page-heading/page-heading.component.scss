@@ -9,7 +9,7 @@ article {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 2rem;
+    margin-block: 0 2rem;
 
     ::ng-deep {
         h1 {
@@ -46,6 +46,7 @@ article {
         min-height: 500px;
         justify-content: end;
         align-items: end;
+        margin-block-start: 0;
 
         ::ng-deep {
             h1 {
