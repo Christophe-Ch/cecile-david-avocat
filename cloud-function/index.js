@@ -40,7 +40,7 @@ exports.sendMail = async (req, res) => {
 
     const msg = {
         to: process.env.RECIPIENT_MAIL_ADDRESS,
-        from: `La sophrologie pas à pas <${process.env.SENDER_MAIL_ADDRESS}>`,
+        from: `Cécile DAVID <${process.env.SENDER_MAIL_ADDRESS}>`,
         subject: `Nouveau message de ${req.body.name}`,
         html
     };
