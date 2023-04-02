@@ -61,7 +61,8 @@ exports.sendMail = async (req, res) => {
                 success: true
             });
         })
-        .catch(() => {
+        .catch((error) => {
+            console.log(error);
             res.send({
                 success: false,
                 errorType: 'mailSending'
