@@ -1,0 +1,37 @@
+name: Contact API deployment
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/contact-form-backend.yml
+      - cloud-function/**
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Authentication
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+
+      - name: Deploy function
+        id: deploy-function
+        uses: google-github-actions/deploy-cloud-functions@v1
+        with:
+          name: send-mail
+          runtime: nodejs18
+          entry_point: sendMail
+          memory_mb: 128
+          source_dir: cloud-function
+          min_instances: 0
+          max_instances: 1
+          region: europe-west1
+          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS }},SENDER_SMTP_HOST=${{ secrets.SENDER_SMTP_HOST }}
