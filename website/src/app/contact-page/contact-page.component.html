@@ -50,7 +50,8 @@
             </ng-container>
         </div>
         <div class="form-group mt-2 mt-lg-4">
-            <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase" [disabled]="isSending">
+            <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase"
+                [disabled]="isSending">
                 Envoyer
             </button>
             <ng-template #cookiesMessage>
@@ -58,4 +59,27 @@
             </ng-template>
         </div>
     </form>
+</article>
+<article class="info-container">
+    <div>
+        <div>
+            <span>Adresse</span>
+            <p>
+                13 rue de Constantine<br>
+                76 000 ROUEN
+            </p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <span>Téléphone</span>
+            <p>02 35 88 74 83</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <span>Email</span>
+            <p>ceciledavid@scp-dubos.fr</p>
+        </div>
+    </div>
 </article>

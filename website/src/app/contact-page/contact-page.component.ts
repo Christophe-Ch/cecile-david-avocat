@@ -4,6 +4,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { TitleService } from '../title.service';
 import { ToastService } from '../toast.service';
 
 @Component({
@@ -20,13 +21,13 @@ export class ContactPageComponent implements OnInit {
     private readonly _formBuilder: FormBuilder,
     private readonly _httpClient: HttpClient,
     private readonly _toastService: ToastService,
-    // private readonly _titleService: TitleService,
+    private readonly _titleService: TitleService,
     private readonly _meta: Meta,
     @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
   ngOnInit(): void {
-    // this._titleService.setTitle('Contact');
+    this._titleService.setTitle('Contact');
     this._meta.updateTag({
       name: 'description',
       content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'

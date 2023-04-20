@@ -3,7 +3,7 @@
 .main-screen {
     height: 100vh;
     background-image: url('../../assets/images/home.jpg');
-    background-size: 175%;
+    background-size: cover;
     background-position: 50% 0%;
     position: relative;
     display: flex;
@@ -83,12 +83,8 @@
 
 @media screen and (min-width: $md) {
     .main-screen {
-        background-size: 115%;
-        background-position: 15% 40%;
+        background-position: 50% 75%;
 
-        &::before {
-            display: none;
-        }
 
         .main-screen-content-wrapper {
             width: 30%;

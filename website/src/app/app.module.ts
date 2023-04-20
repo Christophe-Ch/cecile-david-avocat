@@ -13,6 +13,8 @@ import { PageHeadingComponent } from './page-heading/page-heading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './toast/toast.component';
+import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
+import { CookiesPageComponent } from './cookies-page/cookies-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ToastComponent } from './toast/toast.component';
     ContactPageComponent,
     GoToContactComponent,
     PageHeadingComponent,
-    ToastComponent
+    ToastComponent,
+    MentionsLegalesPageComponent,
+    CookiesPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

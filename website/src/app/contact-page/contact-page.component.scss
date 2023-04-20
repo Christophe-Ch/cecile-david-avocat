@@ -85,6 +85,21 @@ form {
     }
 }
 
+.info-container {
+    background: var(--dark-color);
+    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+
+    span {
+        font-weight: var(--fw-bold);
+        line-height: 1.5rem;
+    } 
+}
+
 @media screen and (min-width: $md) {
     .section-title {
         max-width: calc(100% + 10rem);
@@ -108,5 +123,12 @@ form {
             width: fit-content;
             margin: auto;
         }
+    }
+
+    .info-container {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: start;
+        align-items: start;
     }
 }
