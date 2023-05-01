@@ -3,10 +3,19 @@
 footer {
     margin-top: 3rem;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    gap: 1rem;
     
     a {
         color: var(--dark-color);
+    }
+}
+
+@media screen and (max-width: $md) {
+    footer {
+        flex-direction: column;
     }
 }
 

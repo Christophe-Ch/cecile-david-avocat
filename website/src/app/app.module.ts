@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './toast/toast.component';
 import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
 import { CookiesPageComponent } from './cookies-page/cookies-page.component';
+import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CookiesPageComponent } from './cookies-page/cookies-page.component';
     PageHeadingComponent,
     ToastComponent,
     MentionsLegalesPageComponent,
-    CookiesPageComponent
+    CookiesPageComponent,
+    ConfidentialitePageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

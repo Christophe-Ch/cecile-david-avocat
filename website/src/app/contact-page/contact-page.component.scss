@@ -97,7 +97,11 @@ form {
     span {
         font-weight: var(--fw-bold);
         line-height: 1.5rem;
-    } 
+    }
+
+    a {
+        color: var(--light-color);
+    }
 }
 
 @media screen and (min-width: $md) {
