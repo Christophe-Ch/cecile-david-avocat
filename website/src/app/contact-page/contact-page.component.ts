@@ -30,19 +30,19 @@ export class ContactPageComponent implements OnInit {
     this._titleService.setTitle('Contact');
     this._meta.updateTag({
       name: 'description',
-      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
+      content: 'Contactez-nous pour toute question ou demande de renseignement. Nous sommes là pour vous aider dans tous vos besoins juridiques.'
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
-    });
-    this._meta.updateTag({
-      name: 'og:image',
-      content: '/assets/home.jpg'
+      content: 'Contactez-nous pour toute question ou demande de renseignement. Nous sommes là pour vous aider dans tous vos besoins juridiques.'
     });
     this._meta.updateTag({
       name: 'keywords',
-      content: 'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie'
+      content: 'avocat, cabinet, Rouen, contact, question, renseignement, besoin juridique'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/images/contact.jpg'
     });
     this._meta.updateTag({
       name: 'twitter:card',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../title.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-honoraires-page',
@@ -8,10 +9,30 @@ import { TitleService } from '../title.service';
 })
 export class HonorairesPageComponent implements OnInit {
 
-  constructor(private readonly _titleService: TitleService) { }
+  constructor(private readonly _titleService: TitleService, private readonly _meta: Meta) { }
 
   ngOnInit(): void {
     this._titleService.setTitle('Honoraires');
+    this._meta.updateTag({
+      name: 'description',
+      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. Nous offrons des consultations juridiques à des prix raisonnables pour aider nos clients à obtenir la meilleure représentation possible.'
+    });
+    this._meta.updateTag({
+      name: 'og:description',
+      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. Nous offrons des consultations juridiques à des prix raisonnables pour aider nos clients à obtenir la meilleure représentation possible.'
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: 'avocat, cabinet, Rouen, honoraires, tarifs, consultations juridiques, modalités de paiement'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/images/honoraires.jpg'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
+    });
   }
 
 }

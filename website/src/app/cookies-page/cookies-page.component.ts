@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../title.service';
 
 @Component({
   selector: 'app-cookies-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CookiesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly _titleService: TitleService) { }
 
   ngOnInit(): void {
+    this._titleService.setTitle('Politique de cookies');
   }
 
 }
