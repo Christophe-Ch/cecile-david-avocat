@@ -2,9 +2,9 @@ name: Contact API deployment
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
-      - .github/workflows/contact-form-backend.yml
+      - .github/workflows/contact-form-backend-prod.yml
       - cloud-function/**
 jobs:
   Deploy:
@@ -19,8 +19,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_PROD }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_PROD }}
 
       - name: Deploy function
         id: deploy-function
@@ -34,4 +34,4 @@ jobs:
           min_instances: 0
           max_instances: 1
           region: europe-west1
-          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS }},MAIL_SERVICE=${{ secrets.MAIL_SERVICE }}
+          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS_PROD }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD_PROD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS_PROD }},MAIL_SERVICE=${{ secrets.MAIL_SERVICE_PROD }}

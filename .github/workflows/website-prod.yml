@@ -2,9 +2,9 @@ name: Website deployment
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
-      - .github/workflows/website.yml
+      - .github/workflows/website-prod.yml
       - website/**
 jobs:
   Deploy:
@@ -19,8 +19,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_PROD }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_PROD }}
           token_format: access_token
           access_token_lifetime: 300s
 
@@ -41,12 +41,12 @@ jobs:
           context: website/
           push: true
           tags: |
-            europe-west1-docker.pkg.dev/cecile-david/website/website:${{ steps.get-tag.outputs.short_ref }}
-            europe-west1-docker.pkg.dev/cecile-david/website/website:latest
+            europe-west1-docker.pkg.dev/cecile-david-site/website/website:${{ steps.get-tag.outputs.short_ref }}
+            europe-west1-docker.pkg.dev/cecile-david-site/website/website:latest
 
       - name: Deploy new revision
         uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: website
-          image: europe-west1-docker.pkg.dev/cecile-david/website/website
+          image: europe-west1-docker.pkg.dev/cecile-david-site/website/website
           region: europe-west1
