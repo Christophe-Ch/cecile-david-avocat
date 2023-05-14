@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY ./ ./
-RUN npm run build-preprod:ssr
+RUN npm run build-prod:ssr
 
 FROM node:alpine
 WORKDIR /app
