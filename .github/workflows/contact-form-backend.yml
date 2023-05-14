@@ -34,5 +34,5 @@ jobs:
           min_instances: 0
           max_instances: 1
           region: europe-west1
-          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS }},MAIL_SERVICE=${{ secrets.MAIL_SERVICE }}
+          secret_environment_variables: SENDER_MAIL_ADDRESS=projects/${{ secrets.PROJECT_ID }}/secrets/SENDER_MAIL_ADDRESS,SENDER_MAIL_PASSWORD=projects/${{ secrets.PROJECT_ID }}/secrets/SENDER_MAIL_PASSWORD,RECIPIENT_MAIL_ADDRESS=projects/${{ secrets.PROJECT_ID }}/secrets/RECIPIENT_MAIL_ADDRESS,MAIL_SERVICE=projects/${{ secrets.PROJECT_ID }}/secrets/MAIL_SERVICE
           env_vars: SITE_KEY=6LewGFElAAAAAHn0uMqVMoZLM_J94_Y8F0R8DWr9

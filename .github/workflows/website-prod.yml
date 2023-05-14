@@ -1,4 +1,4 @@
-name: Website deployment
+name: Website deployment (production)
 on:
   push:
     branches:
@@ -39,6 +39,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: website/
+          file: Dockerfile.prod
           push: true
           tags: |
             europe-west1-docker.pkg.dev/cecile-david-site/website/website:${{ steps.get-tag.outputs.short_ref }}
