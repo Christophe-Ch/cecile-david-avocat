@@ -4,12 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build-preprod": "ng build --configuration preproduction",
+    "build-prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run website:serve-ssr",
     "serve:ssr": "node dist/website/server/main.js",
-    "build:ssr": "ng build && ng run website:server",
+    "build-preprod:ssr": "ng build --configuration preproduction && ng run website:server",
+    "build-prod:ssr": "ng build --configuration production && ng run website:server",
     "prerender": "ng run website:prerender"
   },
   "private": true,

@@ -66,7 +66,7 @@ export class ContactPageComponent implements OnInit {
 
     const grecaptcha = (window as any).grecaptcha;
     grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LewGFElAAAAAHn0uMqVMoZLM_J94_Y8F0R8DWr9', { action: 'SEND_MAIL' });
+      const token = await grecaptcha.enterprise.execute(environment.recaptchaSiteKey, { action: 'SEND_MAIL' });
       this._httpClient.post(environment.contactEndpoint,
         {
           token,
