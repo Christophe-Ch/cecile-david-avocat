@@ -51,7 +51,14 @@ form {
     }
 
     label {
-        text-transform: uppercase;
+        &:not(.error) {
+            text-transform: uppercase;
+        }
+
+        &.error {
+            color: red;
+            font-style: italic;
+        }
     }
 
     button {
@@ -66,13 +73,16 @@ form {
         align-items: center;
 
         &:disabled {
-            background-color: rgba(0, 0, 0, 0.75);
+            opacity: 75%;
+            cursor: default;
+        }
+
+        &.loading {
             color: transparent;
             background-image: url('/assets/images/loader.svg');
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-            cursor: default;
         }
 
         img {
