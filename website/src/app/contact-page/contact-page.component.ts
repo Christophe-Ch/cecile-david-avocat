@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
@@ -12,7 +12,7 @@ import { ToastService } from '../toast.service';
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss']
 })
-export class ContactPageComponent implements OnInit {
+export class ContactPageComponent implements OnInit, AfterViewInit {
   contactForm!: FormGroup;
   isSending = false;
   isEnabled = false;
@@ -23,6 +23,7 @@ export class ContactPageComponent implements OnInit {
     private readonly _toastService: ToastService,
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
+    private readonly _cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
@@ -49,7 +50,11 @@ export class ContactPageComponent implements OnInit {
       content: 'summary'
     });
     this._buildForm();
-    this._checkConsent();
+  }
+
+  ngAfterViewInit(): void {
+    const axeptioScript = document.querySelector('script#axeptio') as HTMLScriptElement;
+    axeptioScript?.addEventListener('load', () => { this._checkConsent() });
   }
 
   public get name() { return this.contactForm.get('name'); }
@@ -138,14 +143,15 @@ export class ContactPageComponent implements OnInit {
   }
 
   private async _checkConsent(): Promise<void> {
-    const consentCheck = async () => {
-      const authorizedVendorsCookie = await (window as any).cookieStore.get(('axeptio_authorized_vendors'));
-      this.isEnabled = authorizedVendorsCookie && authorizedVendorsCookie.value.includes('recaptcha_enterprise');
+    const axeptio = (window as any).axeptioSDK;
+    const checkAcceptance = () => {
+      this.isEnabled = axeptio.hasAcceptedVendor('recaptcha_enterprise');
+      this._cdr.detectChanges();
       if (this.isEnabled) {
         this._initializeRecaptcha();
       }
     };
-    (window as any).cookieStore.addEventListener('change', consentCheck);
-    consentCheck();
+    axeptio.on('cookies:complete', checkAcceptance);
+    checkAcceptance();
   }
 }
