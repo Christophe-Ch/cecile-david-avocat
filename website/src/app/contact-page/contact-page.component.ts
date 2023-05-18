@@ -6,13 +6,15 @@ import { Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
 import { ToastService } from '../toast.service';
+import { AxeptioService } from '../axeptio.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss']
 })
-export class ContactPageComponent implements OnInit, AfterViewInit {
+export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
   isSending = false;
   isEnabled = false;
@@ -24,6 +26,7 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
     private readonly _cdr: ChangeDetectorRef,
+    private readonly _axeptioService: AxeptioService,
     @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
@@ -50,11 +53,7 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
       content: 'summary'
     });
     this._buildForm();
-  }
-
-  ngAfterViewInit(): void {
-    const axeptioScript = document.querySelector('script#axeptio') as HTMLScriptElement;
-    axeptioScript?.addEventListener('load', () => { this._checkConsent() });
+    this._checkConsent();
   }
 
   public get name() { return this.contactForm.get('name'); }
@@ -143,15 +142,14 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
   }
 
   private async _checkConsent(): Promise<void> {
-    const axeptio = (window as any).axeptioSDK;
-    const checkAcceptance = () => {
-      this.isEnabled = axeptio.hasAcceptedVendor('recaptcha_enterprise');
-      this._cdr.detectChanges();
-      if (this.isEnabled) {
-        this._initializeRecaptcha();
-      }
-    };
-    axeptio.on('cookies:complete', checkAcceptance);
-    checkAcceptance();
+    this._axeptioService.activationChange$()
+      .pipe(filter(activationStatus => activationStatus.service === 'recaptcha_enterprise'))
+      .subscribe(activationStatus => {
+        this.isEnabled = activationStatus.activation;
+        if (this.isEnabled) {
+          this._initializeRecaptcha();
+        }
+        this._cdr.detectChanges();
+      });
   }
 }
