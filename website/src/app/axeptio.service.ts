@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 export interface ActivationStatus {
@@ -19,9 +19,11 @@ export class AxeptioService {
   private readonly _activationChanged$: Subject<ActivationStatus>;
   private _axeptioSDK?: AxeptioSDK;
 
-  constructor(@Inject(DOCUMENT) private readonly _document: Document) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this._activationChanged$ = new Subject<ActivationStatus>();
-    this._waitForAxeptio();
+    if (isPlatformBrowser(platformId)) {
+      this._waitForAxeptio();
+    }
   }
 
   isServiceEnabled(service: string): boolean {

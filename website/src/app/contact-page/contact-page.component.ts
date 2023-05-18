@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -27,7 +27,6 @@ export class ContactPageComponent implements OnInit {
     private readonly _meta: Meta,
     private readonly _cdr: ChangeDetectorRef,
     private readonly _axeptioService: AxeptioService,
-    @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
   ngOnInit(): void {
@@ -135,8 +134,8 @@ export class ContactPageComponent implements OnInit {
   }
 
   private _initializeRecaptcha(): void {
-    const head = this._document.querySelector('head');
-    const script = this._document.createElement('script');
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
     script.src = environment.recaptchaScriptUrl;
     head?.appendChild(script);
   }
