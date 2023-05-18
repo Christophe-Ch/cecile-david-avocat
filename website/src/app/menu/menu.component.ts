@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -16,7 +17,10 @@ export class MenuComponent implements OnInit {
   @ViewChild('close') private _closeToggle!: ElementRef<HTMLInputElement>;
   private _wasResponsive!: boolean;
 
-  constructor(private readonly _router: Router) { }
+  constructor(
+    private readonly _router: Router,
+    @Inject(PLATFORM_ID) private readonly _platformId: Object
+  ) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -34,7 +38,9 @@ export class MenuComponent implements OnInit {
         setTimeout(() => this._moveHighlight());
         this._closeToggle.nativeElement.checked = false;
       });
-    this._wasResponsive = window.innerWidth < 768;
+    if (isPlatformBrowser(this._platformId)) {
+      this._wasResponsive = window.innerWidth < 768;
+    }
   }
 
   private _moveHighlight(): void {
