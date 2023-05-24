@@ -15,11 +15,11 @@ export class HomePageComponent implements OnInit {
     this._titleService.setTitle('Cabinet d\'avocat');
     this._meta.updateTag({
       name: 'description',
-      content: 'Bienvenue sur le site web de Cécile David, avocate à Rouen. Nous offrons des services de conseil et de représentation juridique pour vous aider à résoudre vos problèmes juridiques.'
+      content: 'Bienvenue sur le site web de Cécile David, avocate à Rouen. J\'offre des services de conseil et de représentation juridique pour vous aider à résoudre vos problèmes juridiques.'
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Bienvenue sur le site web de Cécile David, avocate à Rouen. Nous offrons des services de conseil et de représentation juridique pour vous aider à résoudre vos problèmes juridiques.'
+      content: 'Bienvenue sur le site web de Cécile David, avocate à Rouen. J\'offre des services de conseil et de représentation juridique pour vous aider à résoudre vos problèmes juridiques.'
     });
     this._meta.updateTag({
       name: 'keywords',

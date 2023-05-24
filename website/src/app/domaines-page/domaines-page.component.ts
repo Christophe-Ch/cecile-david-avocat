@@ -15,11 +15,11 @@ export class DomainesPageComponent implements OnInit {
     this._titleService.setTitle('Domaines d\'intervention');
     this._meta.updateTag({
       name: 'description',
-      content: 'Découvrez les domaines d\'intervention du cabinet. Nous sommes spécialisés en droit de la famille, contentieux locatif, recouvrement des créances et droit des mineurs.'
+      content: 'Découvrez les domaines d\'intervention du cabinet. Je suis spécialisée en droit de la famille, contentieux locatif, recouvrement des créances et droit des mineurs.'
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Découvrez les domaines d\'intervention du cabinet. Nous sommes spécialisés en droit de la famille, contentieux locatif, recouvrement des créances et droit des mineurs.'
+      content: 'Découvrez les domaines d\'intervention du cabinet. Je suis spécialisée en droit de la famille, contentieux locatif, recouvrement des créances et droit des mineurs.'
     });
     this._meta.updateTag({
       name: 'keywords',

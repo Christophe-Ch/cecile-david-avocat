@@ -15,11 +15,11 @@ export class HonorairesPageComponent implements OnInit {
     this._titleService.setTitle('Honoraires');
     this._meta.updateTag({
       name: 'description',
-      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. Nous offrons des consultations juridiques à des prix raisonnables pour aider nos clients à obtenir la meilleure représentation possible.'
+      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. J\'offre des consultations juridiques à des prix raisonnables pour vous aider à obtenir la meilleure représentation possible.'
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. Nous offrons des consultations juridiques à des prix raisonnables pour aider nos clients à obtenir la meilleure représentation possible.'
+      content: 'Découvrez les tarifs et les modalités de paiement des honoraires du cabinet. J\'offre des consultations juridiques à des prix raisonnables pour vous aider à obtenir la meilleure représentation possible.'
     });
     this._meta.updateTag({
       name: 'keywords',

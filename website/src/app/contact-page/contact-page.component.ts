@@ -1,6 +1,5 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
@@ -33,11 +32,11 @@ export class ContactPageComponent implements OnInit {
     this._titleService.setTitle('Contact');
     this._meta.updateTag({
       name: 'description',
-      content: 'Contactez-nous pour toute question ou demande de renseignement. Nous sommes là pour vous aider dans tous vos besoins juridiques.'
+      content: 'Contactez-moi pour toute question ou demande de renseignement. Je suis là pour vous aider dans tous vos besoins juridiques.'
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Contactez-nous pour toute question ou demande de renseignement. Nous sommes là pour vous aider dans tous vos besoins juridiques.'
+      content: 'Contactez-moi pour toute question ou demande de renseignement. Je suis là pour vous aider dans tous vos besoins juridiques.'
     });
     this._meta.updateTag({
       name: 'keywords',
