@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /mentions-legales
+Disallow: /politique-de-cookies
+Disallow: /politique-de-confidentialite
+Allow: /
+
+Sitemap: https://www.ceciledavid-avocat.fr/sitemap.xml

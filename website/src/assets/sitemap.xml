@@ -1,44 +1,39 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://www.ceciledavid-avocat.fr/</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>1.00</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/domaines-intervention</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/honoraires</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/contact</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/mentions-legales</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/politique-de-cookies</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>https://www.ceciledavid-avocat.fr/politique-de-confidentialite</loc>
-        <lastmod>2023-05-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-08-07T19:47:13+00:00</lastmod>
+        <priority>0.80</priority>
     </url>
 </urlset>
